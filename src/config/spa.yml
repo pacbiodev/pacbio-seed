@@ -1,0 +1,20 @@
+default:
+    port: 8080
+    cache_assets: true
+    public_key:
+
+development:
+    cache_assets: false
+    public_key: pacbio-dev-jwt-public.pem
+
+test:
+    port: 8180
+    public_key: pacbio-test-jwt-public.pem
+
+production: &production
+    port: #{process.env.PORT}
+    public_key: pacbio-prod-jwt-public.pem
+
+# aliases must be defined before you include!
+staging:
+    <<: *production

@@ -1,0 +1,380 @@
+button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    font-size: 100%;
+    vertical-align: baseline;
+    font-family: inherit;
+    font-weight: inherit;
+    color: inherit;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -ms-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+}
+
+button,
+input[type="checkbox"] {
+    outline: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block !important;
+}
+
+#todoapp {
+    background: #fff;
+    /* margin: 130px 0 40px 0; */
+    position: relative;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
+    0 25px 50px 0 rgba(0, 0, 0, 0.1);
+}
+
+#todoapp input::-webkit-input-placeholder {
+    font-style: italic;
+    font-weight: 300;
+    color: #e6e6e6;
+}
+
+#todoapp input::-moz-placeholder {
+    font-style: italic;
+    font-weight: 300;
+    color: #e6e6e6;
+}
+
+#todoapp input::input-placeholder {
+    font-style: italic;
+    font-weight: 300;
+    color: #e6e6e6;
+}
+
+#todoapp h1 {
+    /*
+    position: absolute;
+    top: -225px;
+    */
+    width: 100%;
+    font-size: 100px;
+    font-weight: 100;
+    text-align: center;
+    color: rgba(175, 47, 47, 0.15);
+    -webkit-text-rendering: optimizeLegibility;
+    -moz-text-rendering: optimizeLegibility;
+    -ms-text-rendering: optimizeLegibility;
+    text-rendering: optimizeLegibility;
+}
+
+#new-todo,
+.edit {
+    position: relative;
+    margin: 0;
+    width: 100%;
+    font-size: 24px;
+    font-family: inherit;
+    font-weight: inherit;
+    line-height: 1.4em;
+    border: 0;
+    outline: none;
+    color: inherit;
+    padding: 6px;
+    border: 1px solid #999;
+    box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -ms-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+}
+
+#new-todo {
+    padding: 16px 16px 16px 60px;
+    border: none;
+    background: rgba(0, 0, 0, 0.003);
+    box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);
+}
+
+#main {
+    position: relative;
+    z-index: 2;
+    border-top: 1px solid #e6e6e6;
+}
+
+label[for='toggle-all'] {
+    display: none;
+}
+
+#toggle-all {
+    position: absolute;
+    top: -52px;
+    left: -2px;
+    width: 60px;
+    height: 34px;
+    text-align: center;
+    border: none; /* Mobile Safari */
+    outline: none;
+}
+
+#toggle-all:before {
+    content: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iMzJweCIgaGVpZ2h0PSIzMnB4IiB2aWV3Qm94PSIwIDAgNDAzLjQ3NSA0MDMuNDc1IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA0MDMuNDc1IDQwMy40NzU7Ig0KCSB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxwYXRoIGQ9Ik0zNzQuMjM3LDE3Mi41YzAtOTUuMTE3LTc3LjM4My0xNzIuNS0xNzIuNS0xNzIuNXMtMTcyLjUsNzcuMzgzLTE3Mi41LDE3Mi41YzAsNTYuMDgsMjcuMDg0LDEwOC4zMTEsNzIuNjg5LDE0MC42OTkNCgkJYzAuODM0LDguOTM5LDQuNDY1LDE3LjM1NiwxMC41NDEsMjQuMTk3bDM4LjIyNiw0My4wMzVjMC4zODUsMC40MzQsMC43ODQsMC44NTIsMS4xOTcsMS4yNTgNCgkJYzEwLjI2LDEwLjA0OSwyOS4zOTYsMjEuNzg1LDQ5LjU1OSwyMS43ODVoMzcuNjM2YzE2LjIyLDAsMzEuNTk3LTUuNzcsNDMuMy0xNi4yNDRjMTIuMy0xMS4wMSwxOS4zNTQtMjYuNDg2LDE5LjM1NC00Mi40NjENCgkJbC0wLjAxNC0zMS43MDNDMzQ3LjIwNiwyODAuNjcyLDM3NC4yMzcsMjI4LjQ1NSwzNzQuMjM3LDE3Mi41eiBNMjM5LjA4MywzNzguNDc1aC0zNy42MzVjLTExLjI3MiwwLTI0LjM4My03LjEyMS0zMi4wNjQtMTQuNjQ2DQoJCWwtMzguMjI1LTQzLjAzM2MtNi40MjUtNy4yMzQtNS43NzEtMTguMzA5LDEuNDY1LTI0LjczNGMzLjMzOC0yLjk2NSw3LjQ5MS00LjQyMywxMS42My00LjQyM2M0LjgzMywwLDkuNjQ0LDEuOTg5LDEzLjEwNSw1Ljg4Ng0KCQlsNi4yMDIsNi45ODF2LTc5LjA1OGMwLTkuNjc2LDcuODQ0LTE3LjUyMSwxNy41MjEtMTcuNTIxYzkuNjc3LDAsMTcuNTIxLDcuODQ2LDE3LjUyMSwxNy41MjF2NDAuOTg0DQoJCWMyLjYxNS0xLjU1Miw1LjY1Ny0yLjQ1OSw4LjkxOS0yLjQ1OWM3LjQzNiwwLDEzLjc3NSw0LjY0MSwxNi4zMTgsMTEuMTc4YzIuNzIzLTEuNzQ2LDUuOTUzLTIuNzcsOS40MjYtMi43Nw0KCQljOC41NjEsMCwxNS42NzcsNi4xNDMsMTcuMjA3LDE0LjI1N2MyLjU3MS0xLjQ4MSw1LjU0NS0yLjM0MSw4LjcyNi0yLjM0MWM5LjY3NiwwLDE3LjUyMSw3Ljg0NSwxNy41MjEsMTcuNTIxbDAuMDE3LDQyLjk1MQ0KCQlDMjc2LjczNywzNjMuMzg1LDI1OS44OCwzNzguNDc1LDIzOS4wODMsMzc4LjQ3NXogTTI5Ny45NDMsMjg0LjNjLTYuMTk2LTEzLjY1MS0xOS40MDUtMjMuNDc0LTM1LjAwMi0yNC44NA0KCQljLTcuNzI0LTcuNTI0LTE4LjI1Mi0xMi4wNzktMjkuNjc1LTEyLjA3OWMtMC4xMjMsMC0wLjI0NiwwLTAuMzcsMC4wMDFjLTAuMzUzLTAuMjYzLTAuNzEtMC41MjEtMS4wNzEtMC43NzINCgkJYy0yLjU5Mi0xLjgwOS01LjM0Ny0zLjMxLTguMjIzLTQuNDg2di0xNi42NzZjMC0yMy40NDYtMTkuMDc1LTQyLjUyMS00Mi41MjEtNDIuNTIxYy0yMy40NDYsMC00Mi41MjEsMTkuMDc1LTQyLjUyMSw0Mi41MjF2NDEuNTcyDQoJCWMtOC4zMzMsMS4xMjUtMTYuMTgsNC43LTIyLjUzOCwxMC4zNDhjLTMuMDY2LDIuNzI0LTUuNjc2LDUuODI0LTcuOCw5LjIwMUM3NC4xODQsMjU4LjY2LDU0LjIzNywyMTYuOTk2LDU0LjIzNywxNzIuNQ0KCQljMC04MS4zMzIsNjYuMTY4LTE0Ny41LDE0Ny41LTE0Ny41czE0Ny41LDY2LjE2OCwxNDcuNSwxNDcuNUMzNDkuMjM3LDIxNS43NywzMzAuMzI4LDI1Ni40MjUsMjk3Ljk0MywyODQuM3oiLz4NCjwvZz4NCjwvc3ZnPg==')
+}
+
+#toggle-all:checked:before {
+    content: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iMzJweCIgaGVpZ2h0PSIzMnB4IiB2aWV3Qm94PSIwIDAgNDAzLjQ3NSA0MDMuNDc1IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA0MDMuNDc1IDQwMy40NzU7Ig0KCSB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxwYXRoIHN0eWxlPSJmaWxsOiAjZWVlOyIgZD0iTTM3NC4yMzcsMTcyLjVjMC05NS4xMTctNzcuMzgzLTE3Mi41LTE3Mi41LTE3Mi41cy0xNzIuNSw3Ny4zODMtMTcyLjUsMTcyLjVjMCw1Ni4wOCwyNy4wODQsMTA4LjMxMSw3Mi42ODksMTQwLjY5OQ0KCQljMC44MzQsOC45MzksNC40NjUsMTcuMzU2LDEwLjU0MSwyNC4xOTdsMzguMjI2LDQzLjAzNWMwLjM4NSwwLjQzNCwwLjc4NCwwLjg1MiwxLjE5NywxLjI1OA0KCQljMTAuMjYsMTAuMDQ5LDI5LjM5NiwyMS43ODUsNDkuNTU5LDIxLjc4NWgzNy42MzZjMTYuMjIsMCwzMS41OTctNS43Nyw0My4zLTE2LjI0NGMxMi4zLTExLjAxLDE5LjM1NC0yNi40ODYsMTkuMzU0LTQyLjQ2MQ0KCQlsLTAuMDE0LTMxLjcwM0MzNDcuMjA2LDI4MC42NzIsMzc0LjIzNywyMjguNDU1LDM3NC4yMzcsMTcyLjV6IE0yMzkuMDgzLDM3OC40NzVoLTM3LjYzNWMtMTEuMjcyLDAtMjQuMzgzLTcuMTIxLTMyLjA2NC0xNC42NDYNCgkJbC0zOC4yMjUtNDMuMDMzYy02LjQyNS03LjIzNC01Ljc3MS0xOC4zMDksMS40NjUtMjQuNzM0YzMuMzM4LTIuOTY1LDcuNDkxLTQuNDIzLDExLjYzLTQuNDIzYzQuODMzLDAsOS42NDQsMS45ODksMTMuMTA1LDUuODg2DQoJCWw2LjIwMiw2Ljk4MXYtNzkuMDU4YzAtOS42NzYsNy44NDQtMTcuNTIxLDE3LjUyMS0xNy41MjFjOS42NzcsMCwxNy41MjEsNy44NDYsMTcuNTIxLDE3LjUyMXY0MC45ODQNCgkJYzIuNjE1LTEuNTUyLDUuNjU3LTIuNDU5LDguOTE5LTIuNDU5YzcuNDM2LDAsMTMuNzc1LDQuNjQxLDE2LjMxOCwxMS4xNzhjMi43MjMtMS43NDYsNS45NTMtMi43Nyw5LjQyNi0yLjc3DQoJCWM4LjU2MSwwLDE1LjY3Nyw2LjE0MywxNy4yMDcsMTQuMjU3YzIuNTcxLTEuNDgxLDUuNTQ1LTIuMzQxLDguNzI2LTIuMzQxYzkuNjc2LDAsMTcuNTIxLDcuODQ1LDE3LjUyMSwxNy41MjFsMC4wMTcsNDIuOTUxDQoJCUMyNzYuNzM3LDM2My4zODUsMjU5Ljg4LDM3OC40NzUsMjM5LjA4MywzNzguNDc1eiBNMjk3Ljk0MywyODQuM2MtNi4xOTYtMTMuNjUxLTE5LjQwNS0yMy40NzQtMzUuMDAyLTI0Ljg0DQoJCWMtNy43MjQtNy41MjQtMTguMjUyLTEyLjA3OS0yOS42NzUtMTIuMDc5Yy0wLjEyMywwLTAuMjQ2LDAtMC4zNywwLjAwMWMtMC4zNTMtMC4yNjMtMC43MS0wLjUyMS0xLjA3MS0wLjc3Mg0KCQljLTIuNTkyLTEuODA5LTUuMzQ3LTMuMzEtOC4yMjMtNC40ODZ2LTE2LjY3NmMwLTIzLjQ0Ni0xOS4wNzUtNDIuNTIxLTQyLjUyMS00Mi41MjFjLTIzLjQ0NiwwLTQyLjUyMSwxOS4wNzUtNDIuNTIxLDQyLjUyMXY0MS41NzINCgkJYy04LjMzMywxLjEyNS0xNi4xOCw0LjctMjIuNTM4LDEwLjM0OGMtMy4wNjYsMi43MjQtNS42NzYsNS44MjQtNy44LDkuMjAxQzc0LjE4NCwyNTguNjYsNTQuMjM3LDIxNi45OTYsNTQuMjM3LDE3Mi41DQoJCWMwLTgxLjMzMiw2Ni4xNjgtMTQ3LjUsMTQ3LjUtMTQ3LjVzMTQ3LjUsNjYuMTY4LDE0Ny41LDE0Ny41QzM0OS4yMzcsMjE1Ljc3LDMzMC4zMjgsMjU2LjQyNSwyOTcuOTQzLDI4NC4zeiIvPg0KPC9nPg0KPC9zdmc+DQo=');
+}
+
+#todo-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#todo-list li {
+    position: relative;
+    font-size: 24px;
+    border-bottom: 1px solid #ededed;
+}
+
+#todo-list li:last-child {
+    border-bottom: none;
+}
+
+#todo-list li.editing {
+    border-bottom: none;
+    padding: 0;
+}
+
+#todo-list li.editing .edit {
+    display: block;
+    width: 506px;
+    padding: 13px 17px 12px 17px;
+    margin: 0 0 0 43px;
+}
+
+#todo-list li.editing .view {
+    display: none;
+}
+
+#todo-list li .toggle {
+    text-align: center;
+    width: 40px;
+    /* auto, since non-WebKit browsers doesn't support input styling */
+    height: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    border: none; /* Mobile Safari */
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: none;
+}
+
+#todo-list li .toggle:before {
+    padding: 10px;
+    content: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iLTEwIC0xOCAxMDAgMTM1Ij48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZWRlZGVkIiBzdHJva2Utd2lkdGg9IjMiLz48L3N2Zz4=');
+}
+
+#todo-list li .toggle:checked:before {
+    padding: 10px;
+    content: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iLTEwIC0xOCAxMDAgMTM1Ij48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYmRkYWQ1IiBzdHJva2Utd2lkdGg9IjMiLz48cGF0aCBmaWxsPSIjNWRjMmFmIiBkPSJNNzIgMjVMNDIgNzEgMjcgNTZsLTQgNCAyMCAyMCAzNC01MnoiLz48L3N2Zz4=');
+}
+
+#todo-list li label {
+    white-space: pre;
+    word-break: break-word;
+    padding: 15px 60px 15px 15px;
+    margin-left: 45px;
+    display: block;
+    line-height: 1.2;
+    transition: color 0.4s;
+}
+
+#todo-list li.completed label {
+    color: #d9d9d9;
+    text-decoration: line-through;
+}
+
+#todo-list li .destroy {
+    display: none;
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    bottom: 0;
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+    color: #cc9a9a;
+    transition: color 0.2s ease-out;
+}
+
+#todo-list li .destroy:hover {
+    color: #af5b5e;
+}
+
+#todo-list li .destroy:after {
+    content: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMzJweCIgaGVpZ2h0PSIzMnB4Ig0KCSB2aWV3Qm94PSIwIDAgNDUuOTU5IDQ1Ljk1OSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDUuOTU5IDQ1Ljk1OTsiPg0KPGc+DQoJPHBhdGggc3R5bGU9ImZpbGw6I2YwMDsiIGQ9Ik0zOS4yMjksNi43MzFjLTguOTc1LTguOTc0LTIzLjUyMy04Ljk3NC0zMi40OTgsMHMtOC45NzQsMjMuNTIzLDAsMzIuNDk4YzguOTc0LDguOTc0LDIzLjUyMyw4Ljk3NCwzMi40OTctMC4wMDENCgkJQzQ4LjIwMiwzMC4yNTQsNDguMjAzLDE1LjcwNCwzOS4yMjksNi43MzF6IE0zMi4zNjMsMjYuNzExYzEuNTYxLDEuNTYxLDEuNTYxLDQuMDkyLDAsNS42NTFjLTEuNTYyLDEuNTYxLTQuMDkyLDEuNTYxLTUuNjUyLDANCgkJbC0zLjc0OC0zLjc0OWwtMy43NCwzLjc0Yy0xLjU2MSwxLjU2Mi00LjA3NCwxLjU3OC01LjYzNSwwLjAxOWMtMS41Ni0xLjU2MS0xLjU0Mi00LjA3MywwLjAxOS01LjYzNWwzLjc0LTMuNzRMMTMuNiwxOS4yNTENCgkJYy0xLjU2MS0xLjU2MS0xLjU2Ny00LjA5OC0wLjAwNi01LjY1OHM0LjA5Ni0xLjU1Niw1LjY1NiwwLjAwNWwzLjc0OSwzLjc0OWwzLjc0LTMuNzRjMS41NjEtMS41NjEsNC4wNzMtMS41NzgsNS42MzQtMC4wMTkNCgkJYzEuNTYxLDEuNTYxLDEuNTQzLDQuMDc0LTAuMDE5LDUuNjM1bC0zLjczOSwzLjc0TDMyLjM2MywyNi43MTF6Ii8+DQo8L2c+DQo8L3N2Zz4NCg==');
+}
+
+#todo-list li:hover .destroy {
+    display: block;
+}
+
+#todo-list li .edit {
+    display: none;
+}
+
+#todo-list li.editing:last-child {
+    margin-bottom: -1px;
+}
+
+#footer {
+    color: #777;
+    padding: 10px 15px;
+    height: 38px;
+    text-align: center;
+    border-top: 1px solid #e6e6e6;
+}
+
+#footer:before {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 50px;
+    overflow: hidden;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
+    0 8px 0 -3px #f6f6f6,
+    0 9px 1px -3px rgba(0, 0, 0, 0.2),
+    0 16px 0 -6px #f6f6f6,
+    0 17px 2px -6px rgba(0, 0, 0, 0.2);
+}
+
+#todo-count {
+    float: left;
+    text-align: left;
+}
+
+#todo-count strong {
+    font-weight: 300;
+}
+
+#filters {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: absolute;
+    right: 0;
+    left: 0;
+}
+
+#filters li {
+    display: inline;
+}
+
+#filters li a {
+    color: inherit;
+    margin: 3px;
+    padding: 3px 7px;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#filters li a.selected,
+#filters li a:hover {
+    border-color: rgba(175, 47, 47, 0.1);
+}
+
+#filters li a.selected {
+    border-color: rgba(175, 47, 47, 0.2);
+}
+
+#clear-completed,
+html #clear-completed:active {
+    float: right;
+    margin-top: 4px;
+    position: relative;
+    line-height: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+#clear-completed::after {
+    visibility: visible;
+    content: 'Clear completed';
+    position: absolute;
+    right: 0;
+    white-space: nowrap;
+}
+
+#clear-completed:hover::after {
+    text-decoration: underline;
+}
+
+#info {
+    /*
+    position: relative;
+    top: -30px;
+    */
+    color: #bfbfbf;
+    font-size: 10px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    text-align: center;
+}
+
+#info p {
+    line-height: 1;
+}
+
+#info a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+#info a:hover {
+    text-decoration: underline;
+}
+
+/*
+Hack to remove background from Mobile Safari.
+Can't use it globally since it destroys checkboxes in Firefox
+*/
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    #toggle-all,
+    #todo-list li .toggle {
+        background: none;
+    }
+
+    #todo-list li .toggle {
+        height: 40px;
+    }
+
+    #toggle-all {
+        -webkit-appearance: none;
+        appearance: none;
+    }
+}
+
+@media (max-width: 430px) {
+    #footer {
+        height: 50px;
+    }
+
+    #filters {
+        bottom: 10px;
+    }
+}

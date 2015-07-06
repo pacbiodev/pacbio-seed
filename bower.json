@@ -1,0 +1,34 @@
+{
+  "name": "angular2-seed",
+  "version": "0.0.0",
+  "description": "Angualr 2.0 Seed with JWT Authentication",
+  "keywords": [],
+  "homepage": "http://www.pacificbiosciences.com/",
+  "license": {
+               "type": "MIT",
+               "url": "https://github.com/pacbiodev/angular2-seed/blob/master/LICENSE"
+             },
+  "author": {
+              "name": "Sal Sanfilippo",
+              "email": "ssanfilippo@pacificbiosciences.com"
+            },
+  "main": "",
+  "ignore": [ 
+              "dist",
+              "node_modules",
+              "bower_components",
+              "test"
+            ],
+  "repository": {
+                  "type": "git",
+                  "url": "https://github.com/pacbiodev/angular2-seed"
+                },
+  "dependencies": {
+                    "bootstrap": "~3.0.0",
+                    "system-bower": "~0.2.2",
+                    "fetch": "~0.9.0", 
+                    "traceur-runtime": "~0.0.90",
+                    "jsonfn-bower":"0.6.2"
+                  },
+  "private": true
+}

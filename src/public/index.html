@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{title}}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <base href="<%= APP_BASE %>">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- inject:css -->
+    <!-- endinject -->
+</head>
+<body>
+<app></app>
+
+<!-- inject:js -->
+<!-- endinject -->
+
+<script>
+    System.config({
+        baseURL: '/',
+        paths: {
+            'common/*': '/*.{ts,js}',
+            'spa/*': '/*.{ts,js}',
+            '*': '*.js'
+        }
+    });
+    System.import('app')
+          .catch(function(e) {
+                   return console.error(e,
+                                       'Please report this error.');
+                 });
+</script>
+</body>
+</html>
