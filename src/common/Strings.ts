@@ -4,8 +4,7 @@ import {readFileSync} from 'fs-extra';
 import {join, resolve} from 'path';
 
 // Include these files
-require('../public/lib/object.js');
-require('../public/lib/string.js');
+require('../public/lib/extensions.js');
 
 export interface IStringMap {
   [key:string]:string;

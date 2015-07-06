@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="demo node_modules" type="javaScript">
+  <library name="pacbio-node" type="javaScript">
     <properties>
       <option name="frameworkName" value="node_modules" />
       <sourceFilesUrls>

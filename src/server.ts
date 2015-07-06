@@ -1,7 +1,6 @@
 /// <reference path="../typings/tsd.d.ts" />
 
-require('./public/lib/object.js');
-require('./public/lib/string.js');
+require('./public/lib/extensions.js');
 
 import {debug, error, info, log, warn} from 'winston';
 import {join as joinPaths, resolve as resolvePaths} from 'path';
@@ -61,13 +60,16 @@ app.all('/*',
 
 var Hbs = require('hbs');
 var source = Fs.readFileSync(resolvePaths(__dirname, './public/index.html'), 'utf8');
-var template = Hbs.compile(source);
+var template = Hbs.compile(source); 
 var indexHtml = template({ title: messages['default-page-title'] });
-app.get('/index.html',
+app.get('/*',
         (req: Request, res: Response, next: Function) => {
-          res.status(200)
-             .send(indexHtml);
-
+          if ((req.url == '/') || (req.url === '/index.html')) {
+            res.status(200)
+               .send(indexHtml);
+          } else {
+            next();
+          }
         });
 
 app.use(FavIcon(resolvePaths(__dirname, './public/img/favicon.png')));

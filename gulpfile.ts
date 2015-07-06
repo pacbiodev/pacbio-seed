@@ -60,8 +60,7 @@ var PATH = {
       './node_modules/bootstrap/dist/css/bootstrap.css',
       './node_modules/bootstrap/dist/css/bootstrap-theme.css',
       './node_modules/json-fn/jsonfn.js',
-      './node_modules/pacbio/object.js',
-      './node_modules/pacbio/string.js'
+      './node_modules/js-extensions/extensions.js'
     ]
   }
 };

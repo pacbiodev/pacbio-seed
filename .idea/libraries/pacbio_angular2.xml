@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="pacbio-angular2" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/angular-2.0.alpha.29.patched" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/angular-2.0.alpha.29.patched" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

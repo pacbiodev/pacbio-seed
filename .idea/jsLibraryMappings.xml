@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="file://$PROJECT_DIR$" libraries="{demo node_modules}" />
+    <file url="file://$PROJECT_DIR$" libraries="{pacbio-node}" />
+    <file url="PROJECT" libraries="{pacbio-angular2, pacbio-bower, pacbio-node, pacbio-typings}" />
   </component>
 </project>
