@@ -1,6 +1,7 @@
 /// <reference path="../../../typings/tsd.d.ts" />
 
-import {Directive, ElementRef, Renderer, Inject} from 'angular2/angular2';
+import {Directive, Renderer, Inject} from 'angular2/angular2';
+import {ElementRef} from 'angular2/annotations';
 
 @Directive({
   selector: '[x-large]' // using [ ] means selecting attributes
