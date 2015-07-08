@@ -52,7 +52,7 @@ declare module "angular2/annotations" {
 
     constructor(parentView:ViewRef, boundElementIndex:number);
 
-    domElement:any;
+    nativeElement:any;
 
     getAttribute(name:string):string;
   }

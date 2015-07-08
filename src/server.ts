@@ -64,7 +64,8 @@ var template = Hbs.compile(source);
 var indexHtml = template({ title: messages['default-page-title'] });
 app.get('/*',
         (req: Request, res: Response, next: Function) => {
-          if ((req.url == '/') || (req.url === '/index.html')) {
+          if ((req.url == '/') ||
+             (req.url === '/index.html')) {
             res.status(200)
                .send(indexHtml);
           } else {
@@ -104,8 +105,6 @@ app.get('/api',
                      { title: messages['default-page-title'] });
 
         });
-
-///api/auth/login/with/labtech/and/labtech1
 
 // Root will redirect to the API page. All other request to paths not
 // listed in the unless middleware handler for JWT will receive a 401

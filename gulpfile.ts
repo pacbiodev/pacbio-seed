@@ -18,14 +18,28 @@ var Builder = require('systemjs-builder');
 var del = require('del');
 var fs = require('fs');
 var join = require('path').join;
+var resolve = require('path').resolve;
 var runSequence = require('run-sequence');
 var semver = require('semver');
 var series = require('stream-series');
+var spawn;
 
 var http = require('http');
 var connect = require('connect');
 var serveStatic = require('serve-static');
 var openResource = require('open');
+
+var server;
+
+(() => {
+  var childProcess = require("child_process");
+  var __spawn = childProcess.spawn;
+  spawn = function () {
+    console.log('spawn called');
+    console.log(arguments);
+    return __spawn.apply(this, arguments);
+  }
+})();
 
 // --------------
 // Configuration.
@@ -97,6 +111,50 @@ var semverReleases = ['major', 'premajor', 'minor', 'preminor', 'patch',
                       'prepatch', 'prerelease'];
 
 var port = 5555;
+
+// --------------
+// Typings
+gulp.task('tsd', 
+          (cb) => {
+            gulp.watch(resolve('./', 'typings/tsd.d.ts'),
+                       () => {
+                         console.log('Refreshing checked in typings');
+                         var git = spawn('git',
+                           ['checkout', 'HEAD', 'typings\\*'],
+                           {
+                             stdio: [
+                               0,      // use parents stdin for child
+                               'pipe', // pipe child's stdout to parent
+                               'pipe'  // pipe child's stderr to parent
+                             ]
+                           });
+
+                         git.stdout
+                           .on('data',
+                           (data) => {
+                             console.log(data.toString('utf8'));
+                           });
+
+                         git.stderr
+                           .on('data',
+                           (data) => {
+                             console.log(data.toString('utf8'));
+                           });
+
+                         git.on('close',
+                                () => {
+                                  cb();
+                                  process.exit(0);
+                                });
+                       });
+
+            tsd({
+                  command: 'reinstall',
+                  config: './tsd.json'
+                },
+                () => {
+                });
+          });
 
 // --------------
 // Clean.
@@ -315,6 +373,56 @@ gulp.task('build.prod',
                         'build.app.prod',
                         done);
           });
+
+// Set Environment and Start Server
+gulp.task('serve.dev',
+  () => {
+    process.env.NODE_ENV = 'development';
+    gulp.start('serve.node');
+  });
+
+gulp.task('serve.prod',
+  () => {
+    process.env.NODE_ENV = 'production';
+    gulp.start('serve.node');
+  });
+
+// Launch server
+gulp.task('serve.node',
+          (cb) => {
+            if (server)
+              server.kill();
+
+            server = spawn('node',
+                          ['dist/server.js'],
+                          {
+                            stdio: [
+                              0,      // use parents stdin for child
+                              'pipe', // pipe child's stdout to parent
+                              'pipe'  // pipe child's stderr to parent
+                            ]
+                          });
+
+            server.stdout
+                  .on('data',
+                  (data) => {
+                    console.log(data.toString('utf8'));
+                  });
+
+            server.stderr
+                  .on('data',
+                  (data) => {
+                    console.log(data.toString('utf8'));
+                  });
+          });
+
+process.on('exit',
+           (code) => {
+             console.log('Gulp process exiting (status: %d)', code);
+
+             if (server)
+               server.kill()
+           });
 
 // --------------
 // Version.
