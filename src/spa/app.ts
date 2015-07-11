@@ -4,18 +4,22 @@ import {Component, View, bootstrap, NgFor} from 'angular2/angular2';
 import {RouteConfig, RouterOutlet, RouterLink, routerInjectables} from 'angular2/router';
 
 // Our custom injectable that uses Just-In-Time change detection
-import {jitInjectables} from '../common/jitInjectables';
+import {changeDetectionInjectables} from './injectables/changeDetectionInjectables';
 
 // Angular's form injectables services/bindings
-import {formInjectables} from '../common/formInjectables';
+import {formInjectables} from './injectables/formInjectables';
 
+// Our custom injectable that checks if ShadowDom is available to inject
+import {shadowDomInjectables} from './injectables/shadowDomInjectables';
+
+// Our collection of injectables services
+import {appServicesInjectables} from 'services/services';
 
 import {Home} from 'components/home';
 import {About} from 'components/about';
 import {ToDo} from 'components/todo';
 
 import {appDirectives} from 'directives/directives';
-import {appServicesInjectables} from 'services/services';
 
 @Component({
   selector: 'app'
@@ -31,12 +35,15 @@ import {appServicesInjectables} from 'services/services';
   directives: [appDirectives, RouterLink]
 })
 class App {
+  constructor() {
+  }
 }
 
 bootstrap(App,
           [
             routerInjectables,
-            jitInjectables,
+            changeDetectionInjectables,
+            // shadowDomInjectables,
             formInjectables,
             appDirectives,
             appServicesInjectables

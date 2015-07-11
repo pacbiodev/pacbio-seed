@@ -85,8 +85,8 @@ var ng2Builder = new Builder({
     rx: 'node_modules/angular2/node_modules/rx/dist/rx.js'
   },
   meta: {
-    'angular2/angular2': { build: false },
-    'angular2/router': { build: false },
+    'angular2/angular2': { build: true },
+    'angular2/router': { build: true },
     rx: {
       format: 'cjs'
     }

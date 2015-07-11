@@ -81,6 +81,17 @@ declare module 'angular2/src/services/url_resolver' {
   class UrlResolver {}
 }
 
+declare module "angular2/src/facade/lang" {
+  function isPresent(obj): boolean;
+  function isBlank(obj): boolean;
+  function isString(obj): boolean;
+  function isFunction(obj): boolean;
+  function isType(obj): boolean;
+  function isStringMap(obj): boolean;
+  function isPromise(obj): boolean;
+  function isArray(obj): boolean;
+}
+
 declare module "angular2/src/facade/async" {
   class Observable {}
   class EventEmitter {
