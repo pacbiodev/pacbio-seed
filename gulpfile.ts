@@ -51,8 +51,8 @@ var PATH = {
     dev: {
       all: 'dist',
       lib: 'dist/public/lib',
-      ng2: 'dist/public/lib/angular2/angular2.js',
-      router: 'dist/public/lib/angular2/router.js'
+      ng2: 'dist/public/lib/angular2.js',
+      router: 'dist/public/lib/router.js'
     },
     prod: {
       all: 'dist/prod',

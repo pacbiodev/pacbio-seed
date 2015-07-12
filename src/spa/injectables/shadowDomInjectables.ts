@@ -1,8 +1,9 @@
 /// <reference path="../../../typings/tsd.d.ts" />
 
-import {ShadowDomStrategy, NativeShadowDomStrategy} from 'angular2/render';
+var document: any = window.document;
+
+import {ShadowDomStrategy, NativeShadowDomStrategy} from 'angular2/angular2';
 import {bind} from 'angular2/di';
-import {document} from 'angular2/src/facade/browser';
 
 export var hasShadowDom = Boolean(document && document.body && document.body.createShadowRoot);
 

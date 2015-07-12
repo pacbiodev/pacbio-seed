@@ -10,7 +10,7 @@ import {changeDetectionInjectables} from './injectables/changeDetectionInjectabl
 import {formInjectables} from './injectables/formInjectables';
 
 // Our custom injectable that checks if ShadowDom is available to inject
-import {shadowDomInjectables} from './injectables/shadowDomInjectables';
+//import {shadowDomInjectables} from './injectables/shadowDomInjectables';
 
 // Our collection of injectables services
 import {appServicesInjectables} from 'services/services';

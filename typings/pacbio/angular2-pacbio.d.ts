@@ -170,6 +170,19 @@ declare module "angular2/forms" {
   }
 }
 
+declare module "angular2/angular2" {
+  class EmulatedScopedShadowDomStrategy {
+    constructor(styleInliner: any, styleUrlResolver: any, styleHost: any);
+  }
+  class EmulatedUnscopedShadowDomStrategy {
+    constructor(styleUrlResolver: any, styleHost: any);
+  }
+  class NativeShadowDomStrategy {
+    constructor(styleUrlResolver: any);
+  }
+  class ShadowDomStrategy {}
+}
+
 declare module "angular2/render" {
   class EmulatedScopedShadowDomStrategy {
     constructor(styleInliner: any, styleUrlResolver: any, styleHost: any);

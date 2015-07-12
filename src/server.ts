@@ -80,7 +80,8 @@ app.use(Express.static(resolvePaths(__dirname, './public')));
 
 // app.use(Express.static(resolvePaths(__dirname, '../src')));
 app.use((req: Request, res: Response, next: Function) => {
-          if (req.url.endsWith('.ts')) {
+          if (req.url.endsWith('.js') ||
+              req.url.endsWith('.ts')) {
             throw new PageNotFoundError();
           } else {
             next();
