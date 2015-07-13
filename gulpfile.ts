@@ -410,15 +410,19 @@ gulp.task('serve.node',
 
             server.stdout
                   .on('data',
-                  (data) => {
-                    console.log(data.toString('utf8'));
-                  });
+                      (data) => {
+                        console.log(data.toString('utf8'));
+                      });
 
             server.stderr
                   .on('data',
-                  (data) => {
-                    console.log(data.toString('utf8'));
-                  });
+                      (data) => {
+                        console.log(data.toString('utf8'));
+                      });
+
+            setTimeout(() => {
+                         openResource('http://localhost:' + port);
+                       }, 2000);
           });
 
 process.on('exit',
