@@ -110,7 +110,7 @@ var tsProject = tsc.createProject('tsconfig.json', {
 var semverReleases = ['major', 'premajor', 'minor', 'preminor', 'patch',
                       'prepatch', 'prerelease'];
 
-var port = 5555;
+var port = 8080;
 
 // --------------
 // Typings
@@ -390,6 +390,11 @@ gulp.task('serve.prod',
 // Launch server
 gulp.task('serve.node',
           (cb) => {
+            watch('./src/**', 
+                  () => {
+                    gulp.start('build.app.dev');
+                  });
+
             if (server)
               server.kill();
 
@@ -434,52 +439,6 @@ gulp.task('bump.reset',
             return gulp.src('package.json')
                        .pipe(bump({ version: '0.0.0' }))
                        .pipe(gulp.dest('./'));
-          });
-
-// --------------
-// Test.
-
-// Change to spawn node instance
-
-// --------------
-// Serve dev.
-
-gulp.task('serve.dev', 
-          ['build.dev'], 
-          () => {
-            var app;
-
-            watch('./src/**', () => {
-              gulp.start('build.app.dev');
-            });
-
-            app = connect().use(serveStatic(join(__dirname, PATH.dest.dev.all)));
-            http.createServer(app)
-                .listen(port, 
-                        () => {
-                          openResource('http://localhost:' + port);
-                        });
-          });
-
-// --------------
-// Serve prod.
-
-gulp.task('serve.prod', 
-          ['build.prod'], 
-          () => {
-            var app;
-
-            watch('./src/**', 
-                  () => {
-                    gulp.start('build.app.prod');
-                  });
-
-            app = connect().use(serveStatic(join(__dirname, PATH.dest.prod.all)));
-            http.createServer(app)
-                .listen(port, 
-                        () => {
-                          openResource('http://localhost:' + port);
-                        });
           });
 
 // --------------
