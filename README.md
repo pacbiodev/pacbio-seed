@@ -250,8 +250,8 @@ You'll need to require `reference path` to compile.
 
 ## Running the app
 After you have installed all dependencies you can now run the app. Run: 
-```
-gulp build.dev watch.dev serve.dev` to build and start a local server.
+```bash
+$ gulp build.dev watch.dev serve.dev # to build and start a local server.
 ```
  
 ### build files only
