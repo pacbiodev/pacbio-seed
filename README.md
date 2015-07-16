@@ -267,10 +267,12 @@ $ gulp build.dev watch.dev
 ### watch only
 ```bash
 $ gulp watch.dev
+```
 
 ### serve and watch 
 ```bash
 $ gulp watch.dev serve.dev
+```
 
 #### Learning Material
 ----------------------
