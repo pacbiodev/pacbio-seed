@@ -5,7 +5,7 @@ require('./public/lib/extensions.js');
 import {debug, error, info, log, warn} from 'winston';
 import {join as joinPaths, resolve as resolvePaths} from 'path';
 
-var config = global['config'] = require('Konfig')({ path: resolvePaths(__dirname, './config') });
+var config = global['config'] = require('konfig')({ path: resolvePaths(__dirname, './config') });
 
 import {connect} from 'mongoose';
 import {RequestHandler, Request, Response} from 'express';
