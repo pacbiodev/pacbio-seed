@@ -390,10 +390,11 @@ gulp.task('serve.prod',
 // Launch server
 gulp.task('serve.node',
           (cb) => {
-            watch('./src/**', 
-                  () => {
-                    gulp.start('build.app.dev');
-                  });
+            gulp.watch('./src/**', 
+                       () => {
+                         console.log('Starting build...');
+                         gulp.start('build.app.dev');
+                       });
 
             if (server)
               server.kill();

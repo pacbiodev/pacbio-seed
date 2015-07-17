@@ -1,7 +1,7 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
 import {Component, View, bootstrap, NgFor} from 'angular2/angular2';
-import {RouteConfig, RouterOutlet, RouterLink, routerInjectables} from 'angular2/router';
+import {Router, RouteConfig, RouterLink, routerInjectables} from 'angular2/router';
 
 // Our custom injectable that uses Just-In-Time change detection
 import {changeDetectionInjectables} from './injectables/changeDetectionInjectables';
@@ -25,7 +25,7 @@ import {appDirectives} from 'directives/directives';
   selector: 'app'
 })
 @RouteConfig([
-  { path: '/', component: Home, as: 'root' },
+  { path: '/', redirectTo: '/home' },
   { path: '/home', component: Home, as: 'home' },
   { path: '/todo', component: ToDo, as: 'todo' },
   { path: '/about', component: About, as: 'about' }
@@ -35,7 +35,10 @@ import {appDirectives} from 'directives/directives';
   directives: [appDirectives, RouterLink]
 })
 class App {
-  constructor() {
+  router: Router;
+
+  constructor(router: Router) {
+    this.router = router; 
   }
 }
 
@@ -45,6 +48,5 @@ bootstrap(App,
             changeDetectionInjectables,
             // shadowDomInjectables,
             formInjectables,
-            appDirectives,
             appServicesInjectables
           ]);
