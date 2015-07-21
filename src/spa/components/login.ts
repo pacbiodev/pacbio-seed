@@ -19,7 +19,7 @@ export class Login {
 
   login(event, username, password) {
     event.preventDefault();
-    window.fetch('http://localhost:8080/api/auth/login/with/%s/and/%s'.sprintf(username.trim(), password.trim()), {
+    window.fetch('http://%s/api/auth/login/with/%s/and/%s'.sprintf(window.location.host, username.trim(), password.trim()), {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
